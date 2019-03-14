@@ -12,22 +12,27 @@ app.use(morgan('combined'));
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+// app.get that is used in the assignment most_repeating_words
 
-app.get('/submit-name', function (req,res) {
-   var name=req.query.name;
-   
-   res.send( JSON.stringify(name));
-});
+app.get('/repeated_words.html', function(req,res) {
+ res.sendFile(path.join  (__dirname, 'repeated_words_inFile.html'));
+
+ });
 
 app.get('/foo.txt', function(req,res) {
  res.sendFile(path.join  (__dirname, 'foo.txt'));
 
  });
 
-app.get('/repeated_words.html', function(req,res) {
- res.sendFile(path.join  (__dirname, 'repeated_words_inFile.html'));
+// other app.get are just for practice
+app.get('/submit-name', function (req,res) {
+   var name=req.query.name;
+   
+   res.send( JSON.stringify(name));
+});
 
- });
+
+
 
 app.get('/index.html', function(req,res) {
  res.sendFile(path.join  (__dirname, 'index.html'));
